@@ -2,7 +2,6 @@
 
 ## Overview
 A **full-stack web application** for browsing and managing apartments.  
-Built for scalability and developer-friendliness, with a modern stack and containerized deployment.
 
 ---
 
