@@ -1,8 +1,3 @@
-import express from 'express';
-import request from 'supertest';
-import projectsRouter from '../projects';
-
-
 const mockPrisma = {
   project: {
     findMany: jest.fn(),
@@ -15,6 +10,12 @@ jest.mock('@prisma/client', () => {
   };
 });
 
+jest.resetModules();
+
+import express from 'express';
+import request from 'supertest';
+
+const projectsRouter = require('../projects').default;
 
 function makeApp() {
   const app = express();
@@ -58,7 +59,6 @@ describe('Projects Router (Jest)', () => {
       expect(res.status).toBe(200);
       expect(res.body).toEqual([]);
     });
-
 
   });
 });

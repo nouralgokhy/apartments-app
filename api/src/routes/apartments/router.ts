@@ -183,40 +183,46 @@ router.get('/:id', async (req, res) => {
 
  */
 router.post('/', async (req, res) => {
-    try {
-        const parseResult = apartmentSchema.safeParse(req.body);
-        if (!parseResult.success) {
-            return res.status(400).json({
-                error: 'Bad Request',
-                details: parseResult.error.issues.map(issue => ({
-                    path: issue.path.join('.'),
-                    message: issue.message,
-                })),
-            });
-        }
-
-        
-        const apartment = await prisma.apartment.create({
-            data: {
-                ...req.body,
-                images: undefined,
-            },
-        });
-      
-        if (Array.isArray(req.body.images) && req.body.images.length > 0) {
-            await prisma.image.createMany({
-                data: req.body.images.map((img: { url: string }) => ({
-                    url: img.url,
-                    apartmentId: apartment.id,
-                })),
-            });
-        }
-
-        res.status(201).json(apartment);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to create apartment' });
+  try {
+    const parseResult = apartmentSchema.safeParse(req.body);
+    if (!parseResult.success) {
+      return res.status(400).json({
+        error: 'Bad Request',
+        details: parseResult.error.issues.map(issue => ({
+          path: issue.path.join('.'),
+          message: issue.message,
+        })),
+      });
     }
+
+    const project = await prisma.project.findUnique({
+      where: { id: req.body.projectId }
+    });
+    if (!project) {
+      return res.status(400).json({ error: 'Project does not exist' });
+    }
+
+    const apartment = await prisma.apartment.create({
+      data: {
+        ...req.body,
+        images: undefined,
+      },
+    });
+
+    if (Array.isArray(req.body.images) && req.body.images.length > 0) {
+      await prisma.image.createMany({
+        data: req.body.images.map((img: { url: string }) => ({
+          url: img.url,
+          apartmentId: apartment.id,
+        })),
+      });
+    }
+
+    res.status(201).json(apartment);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to create apartment' });
+  }
 });
 
 
