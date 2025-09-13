@@ -9,7 +9,8 @@ A **full-stack web application** for browsing and managing apartments.
 - **Backend**: Node.js, Express  
 - **Database**: PostgreSQL + Prisma ORM  
 - **Frontend**: Next.js 15, Tailwind CSS, Material UI  
-- **Validation**: Zod  
+- **Validation**: Zod
+- **Testing**: Jest + Supertest
 - **Documentation**: Swagger (OpenAPI)  
 - **Infrastructure**: Docker & Docker Compose  
 
@@ -56,6 +57,17 @@ Copy them to `.env` and adjust values if needed.
 ##  Seed Data
 
 The database comes preloaded with **example projects and apartments**
+
+---
+
+## Tests
+
+### Run API tests 
+```bash
+cd api
+npm install
+npm test
+```
 
 ---
 
