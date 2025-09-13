@@ -8,7 +8,7 @@ A **full-stack web application** for browsing and managing apartments.
 ## Tech Stack
 - **Backend**: Node.js, Express  
 - **Database**: PostgreSQL + Prisma ORM  
-- **Frontend**: Next.js 15, Tailwind CSS, Material UI  
+- **Frontend**: Next.js, Tailwind CSS, Material UI  
 - **Validation**: Zod
 - **Testing**: Jest + Supertest
 - **Documentation**: Swagger (OpenAPI)  
@@ -28,7 +28,7 @@ A **full-stack web application** for browsing and managing apartments.
 
 ### Run with Docker
 ```bash
-git clone https://github.com/your-username/apartments-app.git
+git clone https://github.com/nouralgokhy/apartments-app.git
 cd apartments-app
 docker compose up --build
 ````
