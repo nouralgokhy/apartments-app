@@ -43,8 +43,6 @@ export type ApartmentCreateError = {
 import { baseApi } from './baseApi';
 
 
-// const API = process.env.NEXT_PUBLIC_API_BASE;
-// console.log('API Base URL:', API);
 
 export async function fetchApartments(params?: Record<string, string | number>) {
   

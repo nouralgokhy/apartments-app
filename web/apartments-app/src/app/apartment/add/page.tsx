@@ -129,7 +129,6 @@ export default function AddApartmentPage() {
             </div>
           </div>
 
-          {/* SUCCESS TOAST */}
           <Snackbar
             open={showSuccess}
             autoHideDuration={3000}
@@ -141,7 +140,6 @@ export default function AddApartmentPage() {
             </MuiAlert>
           </Snackbar>
 
-          {/* GENERAL ERROR TOAST */}
           <Snackbar
             open={Boolean(errorMessage)}
             autoHideDuration={4000}

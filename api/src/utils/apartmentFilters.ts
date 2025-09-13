@@ -8,6 +8,12 @@ export function cleanStr(v: unknown): string | undefined {
 export function buildApartmentFilters(query: any) {
   const filters: any[] = [];
 
+  if (query.unitNumber) {
+    filters.push({
+      unitNumber: { contains: cleanStr(query.unitNumber), mode: 'insensitive' },
+    });
+  }
+
   if (query.unitName) {
     filters.push({
       name: { contains: cleanStr(query.unitName), mode: 'insensitive' },
