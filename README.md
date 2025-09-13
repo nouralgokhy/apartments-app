@@ -28,7 +28,7 @@ A **full-stack web application** for browsing and managing apartments.
 
 ### Run with Docker
 ```bash
-git clone https://github.com/your-username/apartments-app.git
+git clone https://github.com/nouralgokhy/apartments-app.git
 cd apartments-app
 docker compose up --build
 ````
