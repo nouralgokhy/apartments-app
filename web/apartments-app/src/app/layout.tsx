@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
+import favIcon from "../../favicon.ico"
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -28,6 +29,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href={"/home.png"} type="image/x-icon" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans bg-white text-black`}
       >
