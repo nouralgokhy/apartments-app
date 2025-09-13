@@ -37,7 +37,7 @@ docker compose up --build
 
 * FrontEnd: [http://localhost:3000](http://localhost:3000)
 * Backend: [http://localhost:4000](http://localhost:4000)
-* API Docs (Swagger): [http://localhost:4000/api/docs](http://localhost:4000/api/docs)
+* API Docs (Swagger): [http://localhost:4000/api-docs](http://localhost:4000/api-docs)
 * The database runs inside Docker.
 * Migrations and seed data are applied automatically.
 
